@@ -1,0 +1,674 @@
+:root {
+    --primary-color: #2c7873;
+    --secondary-color: #6fb98f;
+    --accent-color: #004445;
+    --text-color: #333;
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --input-bg: #f1f3f4;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+}
+
+[data-theme="dark"] {
+    --primary-color: #4fc3f7;
+    --secondary-color: #0288d1;
+    --accent-color: #01579b;
+    --text-color: #e0e0e0;
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --input-bg: #2d2d2d;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+}
+
+h1 i {
+    margin-right: 10px;
+}
+
+.tagline {
+    color: var(--secondary-color);
+    font-style: italic;
+}
+
+#theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#theme-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] #theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+.tool-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    box-shadow: var(--shadow);
+}
+
+.tool-card h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.tool-card h2 i {
+    margin-right: 10px;
+}
+
+.tool-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.input-group label {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.input-group input {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(44, 120, 115, 0.2);
+}
+
+[data-theme="dark"] .input-group input:focus {
+    box-shadow: 0 0 0 2px rgba(79, 195, 247, 0.3);
+}
+
+button {
+    padding: 12px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.result {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: rgba(111, 185, 143, 0.2);
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    color: var(--text-color);
+    text-align: center;
+    display: none;
+}
+
+.recommended-stores {
+    margin-top: 30px;
+}
+
+.recommended-stores h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.stores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.store-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.store-card:hover {
+    transform: translateY(-5px);
+}
+
+.store-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.store-card p {
+    color: var(--text-color);
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+.store-contact {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px 0;
+    color: var(--text-color);
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .tool-card {
+        padding: 20px 15px;
+    }
+
+    .stores-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .tool-card h2 {
+        font-size: 1.3rem;
+    }
+
+    button {
+        padding: 10px 15px;
+    }
+}
+
+/* Mantenha todas as variáveis e estilos anteriores e adicione: */
+
+.calculator-switcher {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.switch-btn {
+    padding: 12px 25px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.switch-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.switch-btn.active {
+    color: var(--primary-color);
+}
+
+.switch-btn.active::after {
+    transform: scaleX(1);
+}
+
+.switch-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.calculators-container {
+    position: relative;
+    min-height: 300px;
+}
+
+.tool-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    box-shadow: var(--shadow);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    visibility: hidden;
+}
+
+.tool-card.active {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    position: relative;
+}
+
+/* Ajuste para telas pequenas */
+@media (max-width: 480px) {
+    .calculator-switcher {
+        flex-direction: column;
+    }
+    
+    .switch-btn {
+        width: 100%;
+    }
+}
+
+
+/* Mantenha todos os estilos anteriores e adicione: */
+
+.store-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: transform 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    overflow: hidden;
+}
+
+.store-logo {
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.store-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.store-info {
+    flex: 1;
+}
+
+.store-contact {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--secondary-color);
+}
+
+/* Efeito hover mais elaborado */
+.store-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.store-card:hover .store-logo {
+    transform: rotate(5deg);
+    transition: transform 0.3s ease;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 600px) {
+    .store-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .store-logo {
+        margin-bottom: 15px;
+    }
+    
+    .store-contact {
+        justify-content: center;
+    }
+}
+
+/* Adicione uma animação sutil para quando a loja é clicada */
+.store-card:active {
+    transform: scale(0.98);
+}
+
+/* Adicione estes novos estilos */
+
+.calculator-switcher {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.tools-container {
+    display: flex;
+    overflow: hidden;
+    width: 300px;
+    position: relative;
+}
+
+.tool-buttons {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    flex-shrink: 0;
+    transition: transform 0.5s ease;
+    position: absolute;
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+.tool-buttons.active {
+    position: relative;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.nav-arrow {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-arrow:hover {
+    background: var(--accent-color);
+    transform: scale(1.1);
+}
+
+.nav-arrow:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.nav-arrow i {
+    font-size: 1.2rem;
+}
+
+.brand-select {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    font-size: 1rem;
+    width: 100%;
+}
+
+.brand-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.info-text {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+/* Ajustes para mobile */
+@media (max-width: 480px) {
+    .tools-container {
+        width: 220px;
+    }
+    
+    .tool-buttons {
+        flex-direction: column;
+    }
+    
+    .switch-btn {
+        width: 100%;
+    }
+}
+
+/* Adicione estes estilos */
+
+.heater-info {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: rgba(44, 120, 115, 0.1);
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+}
+
+[data-theme="dark"] .heater-info {
+    background-color: rgba(79, 195, 247, 0.1);
+}
+
+.heater-info ul {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.heater-info li {
+    margin-bottom: 5px;
+}
+
+/* Container principal com altura fixa e rolagem */
+.problems-container {
+    max-height: 500px;
+    overflow: hidden;
+    padding: 15px;
+}
+
+.problems-scroll-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) var(--card-bg);
+}
+
+/* Customização da scrollbar */
+.problems-scroll-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.problems-scroll-container::-webkit-scrollbar-track {
+    background: var(--card-bg);
+}
+
+.problems-scroll-container::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 10px;
+}
+
+/* Mantenha os outros estilos de problem-card existentes */
+.problem-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.problem-card:hover {
+    transform: translateY(-5px);
+}
+
+.problem-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.problem-card h4 {
+    padding: 10px 15px 5px;
+    color: var(--primary-color);
+}
+
+.problem-card p {
+    padding: 0 15px 15px;
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+/* Modal de soluções */
+.problem-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.modal-content {
+    background: var(--card-bg);
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.problem-solutions ul {
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+.solution-tag {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    margin-right: 5px;
+}
